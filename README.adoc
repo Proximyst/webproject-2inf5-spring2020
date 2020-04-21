@@ -1,0 +1,43 @@
+= Røyksund Turforeining
+
+This documentation is available in both English and Norwegian Nynorsk.
+
+Denne dokumentasjonen er tilgjengeleg på båe engelsk og nynorsk.
+
+== English
+
+This is a web-page project for 2INF5 in the spring of 2020.
+
+=== Build
+
+You require the following:
+
+. GNU/make or equivalent;
+. Docker (preferably docker-compose);
+. sassc (C implementation of the Sass transpiler).
+
+You must first run `make sass`. This watches but once it has obviously stalled,
+you can safely `CTRL-C` out of it. If you do not have a Makefile application
+installed, link:./scripts/watch-scss.sh[`watch-scss.sh`] can be ran manually.
+
+After doing so, run `docker-compose up` or build and deploy the `Dockerfile`.
+Navigate to the container's IP address and look at the action. Or just open the
+HTML files manually. That also works great, I hear.
+
+== Nynorsk
+
+Du treng fylgjande:
+
+. GNU/make eller ekvivalent,
+. Docker (helst docker-compose) og
+. sassc (C implementasjonen av Sass transpileraren).
+
+Du må fyrst køyra `make sass`. Dette ser etter endringar, men når han ganske
+klart har fullført, kan du trygt trykkja `CTRL-C` for å avslutta han. Viss du
+ikkje har ein Makefile applikasjon installert, kan du køyra
+link:./scripts/watch-scss.sh[`watch-scss.sh`] manuelt.
+
+Etter å ha gjort dette, køyr `docker-compose up` eller bygg og få opp
+`Dockerfile` fila. Naviger deg fram til den innesperra si IP-adresse og sjå på
+magien skje. Eller berre opn HTML-filene manuelt. Det funkar også bra, har eg
+fått høyra.
