@@ -1,0 +1,100 @@
+@import 'util';
+
+body {
+	font-family: "Arial", sans-serif;
+	font-size: 1.1vw;
+	line-height: 22px;
+
+	@media screen and (max-width: 1200px) {
+		font-size: 14px;
+	}
+
+	background-color: white;
+	color: #333333;
+	margin: 0;
+	min-height: 100%;
+
+    // I'm lazy. I don't want to fix an overflow thing.
+    overflow: hidden;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body > div#content {
+    position: static;
+    right: 0;
+    top: 0;
+    bottom: auto;
+
+    display: flex;
+    margin: 200px auto 200px;
+
+    // I know these aren't standard, but I don't care.
+    // They look nice for anyone running a *recent* non-IE.
+    // Recent here means:
+    //   - Chrome from 2008
+    //   - Firefox from 2004
+    //   - Safari from 2007
+    // You get the drill, they're ancient. You can expect these on any non-IE
+    // browser you load up on the site.
+    // I also know box-pack as a whole is deprecated, but I still quite frankly
+    // do not care, because it looks good and there are no new alternatives.
+    // Thanks for keeping up deprecation without reason, developers!
+    //
+    // Flex box stuff:
+    @include prefixed(box-pack, center);
+    @include prefixed(align-items, start);
+    align-items: flex-start;
+
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 19px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+
+    transition: 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+body > div#background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -100;
+    height: 100%;
+    width: 100%;
+    margin-top: 150px;
+    // Perhaps TODO?: Only opt in to 4k image if a 1080p and 2k image are not enough.
+    // I mean, it's not a requirement...
+    background-image: url("../assets/background4k.jpg");
+    background-repeat: no-repeat;
+}
+
+ul.infobox {
+    display: flex;
+    padding: 60px 40px 60px;
+    margin-bottom: 0;
+    margin-top: 0;
+
+    @include prefixed(box-orient, vertical);
+    @include prefixed(align-items, center);
+    list-style: none;
+    list-style-type: none;
+
+    background-color: white;
+    opacity: 1;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: normal;
+        text-align: center;
+        width: auto;
+        margin: 0 auto auto;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
+
+// vim: set ff=unix autoindent ts=4 sw=4 tw=0 noet :

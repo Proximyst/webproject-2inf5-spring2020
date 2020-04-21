@@ -1,0 +1,85 @@
+@import 'util';
+
+div.header {
+    display: flex;
+    max-width: 70%;
+
+    @media only screen and (max-width: 768px) {
+        max-width: 100%;
+    }
+
+    margin-top: 60px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 40px;
+    padding-left: 40px;
+
+    // I know these aren't standard, but I don't care.
+    // They look nice for anyone running a *recent* non-IE.
+    // Recent here means:
+    //   - Chrome from 2008
+    //   - Firefox from 2004
+    //   - Safari from 2007
+    // You get the drill, they're ancient. You can expect these on any non-IE
+    // browser you load up on the site.
+    // I also know box-pack as a whole is deprecated, but I still quite frankly
+    // do not care, because it looks good and there are no new alternatives.
+    // Thanks for keeping up deprecation without reason, developers!
+    @include prefixed(box-pack, center);
+
+    * {
+        transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        font-weight: bold;
+    }
+
+    a.logo {
+        margin-top: auto;
+        margin-bottom: auto;
+        text-decoration: none;
+        color: inherit;
+        vertical-align: middle;
+        display: inline-block;
+        border: 0;
+    }
+
+    div.menu {
+        justify-content: flex-end;
+        margin-top: auto;
+        margin-bottom: auto;
+        display: inline-block;
+        vertical-align: middle;
+        border: 0;
+
+        ul {
+            float: right;
+            padding-left: 0;
+            list-style: none;
+            list-style-type: none;
+            display: flex;
+            margin-top: 0;
+            margin-bottom: 10px;
+
+            li {
+                padding-left: 14px;
+                padding-right: 14px;
+                cursor: pointer;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 1vw;
+
+        	@media screen and (max-width: 1200px) {
+        		font-size: 16px;
+        	}
+        }
+    }
+
+    a:hover, li:hover {
+        color: #c2c2c2;
+    }
+}
+
+// vim: set ff=unix autoindent ts=4 sw=4 tw=0 noet :

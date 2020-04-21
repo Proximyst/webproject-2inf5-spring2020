@@ -1,0 +1,48 @@
+@mixin col($name, $width) {
+    .col-#{$name} { width: #{$width}; }
+}
+
+// For mobile devices:
+[class^="col-"] {
+    width: 100%;
+}
+
+// For (most) tablets and landscape mobile devices:
+@media only screen and (min-width: 600px) {
+    @include col(s-1, 8.33%);
+    @include col(s-2, 16.66%);
+    @include col(s-3, 25%);
+    @include col(s-4, 33.33%);
+    @include col(s-5, 41.66%);
+    @include col(s-6, 50%);
+    @include col(s-7, 58.33%);
+    @include col(s-8, 66.66%);
+    @include col(s-9, 75%);
+    @include col(s-10, 83.33%);
+    @include col(s-11, 91.66%);
+    @include col(s-12, 100%);
+}
+
+// For computers:
+@media only screen and (min-width: 768px) {
+    @include col(1, 8.33%);
+    @include col(2, 16.66%);
+    @include col(3, 25%);
+    @include col(4, 33.33%);
+    @include col(5, 41.66%);
+    @include col(6, 50%);
+    @include col(7, 58.33%);
+    @include col(8, 66.66%);
+    @include col(9, 75%);
+    @include col(10, 83.33%);
+    @include col(11, 91.66%);
+    @include col(12, 100%);
+}
+
+div.row:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+// vim: set ff=unix autoindent ts=4 sw=4 tw=0 noet :
